@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Esercitazioni con fetch</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <style>
         col .card{
@@ -12,67 +13,36 @@
     </style>
   </head>
   <body>
-    <nav class="navbar bg-dark navbar-expand-md" data-bs-theme="dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
-          </div>
-        </div>
-      </nav>
-      <h1 class="text-center my-4">Facciamo pratica con il metodo fetch()</h1>
-      <div class="container justify-content-center">
+    <input type="checkbox" id="hamburger"/>
+<label class="menuicon" for="hamburger">
+  <span></span>
+</label>
+
+<div id="bar"> 
+ 	<div id="logo">
+    <a href="#top"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAY1BMVEUcqOP///8ApOIAouEApeIApuL7/v/o9vzi8/v3/P5cu+nB5Pan2fLy+v2h1/Lt+P18x+00r+XZ7vm44PWV0fDO6vhNtOdzxOzc8Pqv3PPL5/fA5PY1sOVivemJze9QuOh2xuwoYxH+AAAEnElEQVR4nO3a55aqMBgF0JhCFwgdpfj+T3mDgGKh2Lmzzv43I2iOCR9JkBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABghGr9uxGdwSjmRSVIrSUEEpX8pKGc08d2doW83LdMzYjeV7G+EFEz4+z7aBS1I2cy532niS7go43vpOjafOFfIUtKvtfQ5nFT6RD4lmThbehvT5VPfwc8xfybfZlONBxBlc8A2Xe/VKuTU+Oy4U8PQOB6SlWstu1KbD7hxphLKrD1oV6/ycqR5n8LUjSC2w9xx8nAXXA7cyT7koh8F+2Km6v6CKLPAzqu0LmRzf2eMKkzd9oth9Zm4Dhs07A8MC7q6miOaSFzctouz/SlhOnOJ0eh0aJisL+Oo8yVazB3KDucO39frratXhNE3ev5YmnjnjLHF/o9+pF2R3BgL2ivI8K5j+GSVhVXhg9mJ6BPai1rL3GH59Vy5xhskZ3VVJaeMfTWdKaU9lprDjJpdrm2wUu4HTdMOXbtOlaZe2BlcBhe30Y0ekfV0JKeF0yXS2kYJq2/n8neh7uaKXZI1lFbBpD/4+uXxn7y/yYUPzFSYdTON93KL/rbscMrLcLj4NdpEdNf9PXe/v3w3EV5HVKPALdivhiunrM69i+ZoRdsW2tUN88G3ZKV3m1GFTPj3Qwoqaue6OXG3K8HrJwZpeybJr/O1Y8MpyTendJySMr9d+0Z9nlPRWFpJB2hp3Lzx0db25VfGq6CqtOzubDwZ9anDWNdI45kVkeDR7Zufu1J8NKVKxy3n/nccDfaBi+5//nPjisrd3Y9oxW4pVYV7f0xBubTcsW2LQA66qx+k+tOtYGU28kFHZpD7yTs7U60DeZI6gTn2iZ5/MRx518sLZ2z3cFHd3YEdfmjspoVadr/Wm5yrVbtMI9ub2pJxyUWUvpI+34VtxmjJNlAQRpYUzROFB5+W8OaS46T283i05zr29aYuddoX0herOyXOkozKNtu5fplIctxFmcgqhFCdpoa3LGrVb/HsXqgS1zf1UrTn7V7fWmLF0oxtUN2IQ7fyU6sumsXOJUFUrDKtIscOjMkxeZGvvJ0at/u8G02+HJA0ZdV5IOKZppmm6elGFiiZYehb9bf2yNfV5qvvVTPa7kL5b5oxUxHN1ZxP2Rf3lzbi+Gr+vu1PKvxgpi0fsHXkSIR2RhK/9YbMuWV/N182sVl0nLEZ78zXEJRE95YdH6HlUxu3xzqjf+LJJ2dW+IUrUot9OrmzwKvzIurdBCOH3dzt+TVBJecXae6T8+1FOJWHqWn5S+KqWPS49tPPdDkT5fuHq7k/kBVtYArG6ih4W8ptEFl0RfFanDNSuvHLKbdxVH5n6+AZalVHkioc2fWYl4V+Qtb/wyY1waZ15cTeA0XW9GLHr9VsfG0jc5xaETFZp5Wzy/Tt6Pxa2+rZzqnSWg3L/+hZ7BkXzdJPrZESKz1UkZuHod0Ic+e4pEqKZgH58FJ5jdp1bvOjglYTi//ZX0wCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8xz9HeTLxg5Mq9AAAAABJRU5ErkJggg==" class=" rounded" alt="your logo" title="your logo" height="54"></a>
+	</div> <!--/fine logo-->   
+</div><!--/fine bar--> 
+	
+<nav class="menu-visibility">
+            	<ul>
+                	 <li><a class="active" href="#">HOME</a></li>
+                     <li><a class="submenu" href="#">PRODUCTS</a>
+						
+                     </li>
+					 <li><a class="submenu" href="#">PAYMENTS</a>
+                     	
+                    </li>
+					<li><a href="#">CHI SIAMO</a></li>
+					<li><a href="#">CONTATTI</a></li>
+					<li class="lingua"><a href="#">LINGUA</a>
+                     	
+                     </li>
+              	</ul>
+</nav>
+
+      
+      <div class="container justify-content-center mt-5">
         <div id="list" class="row justify-content-center">
           
         </div>

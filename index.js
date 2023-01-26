@@ -17,8 +17,8 @@
           listReference.innerHTML =
             listReference.innerHTML + 
             `
-            <div class="col justify-content-center" >
-            <div class="card m-0" style="width: 20rem;">
+            <div class="col-4 col-lg-3 justify-content-center mb-2 h-100" >
+            <div class="card h-100 m-0">
                 <img src=${album.img} class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">${album.title}</h5>
@@ -45,7 +45,7 @@
 
 
   // predisponiamo la funzione che eliminerà il contenuto della pagina una volta chiamata
-  
+
           function myFun() {
             let elem = document.getElementById('list');
             elem.parentNode.removeChild(elem);
