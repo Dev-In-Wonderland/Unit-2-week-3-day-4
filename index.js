@@ -24,10 +24,13 @@
                   <h5 class="card-title">${album.title}</h5>
                   <p class="card-text">$ ${album.price}</p>
                   
+                  
                 </div>
               </div>
           </div>
           `
+           
+
         })
       } else {
         
@@ -44,7 +47,7 @@
     
 
 
-  // predisponiamo la funzione che eliminerà il contenuto della pagina una volta chiamata
+  // predisponiamo la funzione che eliminerà tutto il contenuto della pagina una volta chiamata
 
         //   function myFun() {
         //     let elem = document.getElementById('list');
